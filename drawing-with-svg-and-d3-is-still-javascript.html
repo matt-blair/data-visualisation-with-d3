@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drawing with SVG and D3</title>
+    <script src="/node_modules/d3/dist/d3.min.js"></script>
+    <style>
+        svg {
+            outline: 1px solid black;
+        }
+
+        text {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<h1>Drawing with SVG and D3 - <em>Remember: it's still JavaScript</em></h1>
+<p>Here we extend the previous example to demonstrate that we're still using JavaScript when drawing SVG with D3.</p>
+<p>This allows us to apply it to data in very straightforward ways, as illustrated here.</p>
+<body>
+<div class="visualisation">
+
+</div>
+<script>
+
+    mountains = [
+        {name: 'Everest', height: 300},
+        {name: 'Snowdon', height: 150},
+        {name: 'Ben Nevis', height: 200},
+        {name: 'Giewont', height: 220}
+    ];
+
+
+    const svg = d3.select('.visualisation').append('svg').attr('width', 500).attr('height', 300);
+
+    let generate_an_svg_with_d3 = function (y_position, line_length, message) {
+        const stick = svg.append('g').attr('transform', `translate(50, ${y_position})`);
+
+        stick.append('line')
+            .attr('x2', line_length)
+            .style('stroke', 'black');
+
+        stick.append('circle')
+            .attr('cx', line_length)
+            .attr('r', 3);
+
+        stick.append('text')
+            .attr('y', -10)
+            .text(message)
+    };
+
+    mountains.forEach((mountain, index) => {
+        let position = (index + 1) * 60;
+        generate_an_svg_with_d3(position, mountain.height, mountain.name)
+    })
+
+</script>
+</body>
+</html>

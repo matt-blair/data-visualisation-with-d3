@@ -1,0 +1,27 @@
+{
+  "name": "data-visualisation-with-d3",
+  "version": "1.0.0",
+  "description": "This repository is a companion to the introduction for developers along with follow-along examples.",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  },
+  "devDependencies": {
+    "d3": "^5.15.0"
+  },
+  "scripts": {
+    "start": "open http://127.0.0.1:8080 & http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtvj/data-visualisation-with-d3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gtvj/data-visualisation-with-d3/issues"
+  },
+  "homepage": "https://github.com/gtvj/data-visualisation-with-d3#readme"
+}
