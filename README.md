@@ -1,2 +1,2 @@
-# data-visualisation-with-d3
-Weekly experiments with D3 
+# Data visualisation with D3
+Experiments with D3.js library
