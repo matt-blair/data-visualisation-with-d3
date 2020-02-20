@@ -23,6 +23,8 @@
 </div>
 <script>
 
+    /*
+    // This is an array of objects. An array is a collection of values, whilst an object is a set of key/value pairs.
     mountains = [
         {name: 'Everest', height: 300},
         {name: 'Snowdon', height: 150},
@@ -30,9 +32,10 @@
         {name: 'Giewont', height: 220}
     ];
 
-
+    // Defining where you want it to go
     const svg = d3.select('.visualisation').append('svg').attr('width', 500).attr('height', 300);
 
+    // What will be drawn
     let generate_an_svg_with_d3 = function (y_position, line_length, message) {
         const stick = svg.append('g').attr('transform', `translate(50, ${y_position})`);
 
@@ -42,17 +45,55 @@
 
         stick.append('circle')
             .attr('cx', line_length)
-            .attr('r', 3);
+            .attr('r', 10);
 
         stick.append('text')
             .attr('y', -10)
             .text(message)
     };
 
+
     mountains.forEach((mountain, index) => {
         let position = (index + 1) * 60;
         generate_an_svg_with_d3(position, mountain.height, mountain.name)
     })
+    */
+
+
+    const svg = d3.select('.visualisation').append('svg').attr('width', 500).attr('height', 300);
+
+    let generate_an_svg_with_d3 = function (x_position, y_position, radius, color) {
+        const stick = svg.append('g');
+
+        stick.append('circle')
+            .attr('cx', x_position)
+            .attr('cy', y_position)
+            .attr('r', radius)
+            .attr('fill', color);
+
+    };
+
+    let randomNumber = function (){
+        return Math.floor(Math.random() * 50);
+    };
+
+    let randomiseX = function (){
+        return Math.floor(Math.random() * 500);
+    };
+
+    let randomiseY = function (){
+        return Math.floor(Math.random() * 300);`
+       `
+    };
+
+    let randomiseColor = function (){
+        return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+    };
+
+
+    for (var i = 0; i < 50; i++) {
+        generate_an_svg_with_d3(randomiseX(), randomiseY(), randomNumber(), randomiseColor())
+    }
 
 </script>
 </body>
